@@ -6,13 +6,14 @@
   <title>247.net.pk</title>
   <style>
     :root {
-      --ink: #10233f;
-      --muted: #526173;
-      --line: rgba(16, 35, 63, 0.12);
-      --blue: #0f6bff;
-      --teal: #18b6a6;
-      --gold: #ffb84d;
-      --paper: #fbfcff;
+      --ink: #111827;
+      --muted: #5f6b7a;
+      --soft: #f6f8fb;
+      --line: #e5eaf0;
+      --blue: #2563eb;
+      --green: #10a37f;
+      --amber: #f59e0b;
+      --white: #ffffff;
     }
 
     * {
@@ -25,29 +26,29 @@
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--ink);
       background:
-        radial-gradient(circle at 18% 18%, rgba(24, 182, 166, 0.16), transparent 30%),
-        radial-gradient(circle at 82% 24%, rgba(255, 184, 77, 0.18), transparent 28%),
-        linear-gradient(135deg, #f5f9ff 0%, #ffffff 48%, #eef9f7 100%);
+        linear-gradient(rgba(17, 24, 39, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(17, 24, 39, 0.04) 1px, transparent 1px),
+        linear-gradient(180deg, #ffffff 0%, #f7fafc 100%);
+      background-size: 48px 48px, 48px 48px, auto;
     }
 
     .page {
       display: grid;
       min-height: 100vh;
-      padding: 32px;
+      padding: 24px;
     }
 
-    .hero {
+    .shell {
       display: grid;
-      grid-template-rows: auto 1fr auto;
       width: min(1120px, 100%);
-      min-height: calc(100vh - 64px);
+      min-height: calc(100vh - 48px);
       margin: auto;
-      overflow: hidden;
-      border: 1px solid var(--line);
+      grid-template-rows: auto 1fr auto;
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.72);
-      box-shadow: 0 24px 80px rgba(16, 35, 63, 0.12);
-      backdrop-filter: blur(18px);
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: 0 24px 70px rgba(17, 24, 39, 0.10);
+      border: 1px solid var(--line);
+      overflow: hidden;
     }
 
     header,
@@ -56,7 +57,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      padding: 24px clamp(24px, 5vw, 56px);
+      padding: 22px clamp(22px, 5vw, 54px);
     }
 
     .brand {
@@ -74,57 +75,79 @@
       place-items: center;
       border-radius: 8px;
       color: white;
-      background: linear-gradient(135deg, var(--blue), var(--teal));
-      box-shadow: 0 10px 26px rgba(15, 107, 255, 0.28);
+      background: var(--ink);
+      font-size: 0.82rem;
+      box-shadow: 0 10px 22px rgba(17, 24, 39, 0.16);
     }
 
     nav {
       display: flex;
-      gap: 18px;
+      gap: 8px;
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.88rem;
       font-weight: 600;
+    }
+
+    nav span {
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--white);
     }
 
     main {
       display: grid;
-      align-content: center;
-      gap: 28px;
-      padding: clamp(48px, 9vw, 110px) clamp(24px, 7vw, 80px);
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: clamp(32px, 6vw, 72px);
+      align-items: center;
+      padding: clamp(54px, 9vw, 108px) clamp(22px, 7vw, 80px);
+    }
+
+    .copy {
+      display: grid;
+      gap: 24px;
+    }
+
+    .eyebrow,
+    .status {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 10px;
+      margin: 0;
+      color: #0b7663;
+      font-size: 0.86rem;
+      font-weight: 800;
     }
 
     .eyebrow {
       width: fit-content;
-      margin: 0;
-      padding: 8px 12px;
-      border: 1px solid rgba(24, 182, 166, 0.24);
+      padding: 8px 13px;
+      border: 1px solid rgba(16, 163, 127, 0.22);
       border-radius: 999px;
-      color: #08786e;
-      background: rgba(24, 182, 166, 0.09);
-      font-size: 0.84rem;
-      font-weight: 800;
+      background: rgba(16, 163, 127, 0.08);
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0;
     }
 
     h1 {
-      max-width: 860px;
+      max-width: 720px;
       margin: 0;
-      font-size: clamp(3rem, 8vw, 7.4rem);
-      line-height: 0.92;
+      font-size: clamp(2.8rem, 7vw, 5.7rem);
+      line-height: 0.96;
       letter-spacing: 0;
     }
 
     .accent {
-      color: var(--blue);
+      color: #1d4ed8;
     }
 
     .lead {
-      max-width: 660px;
+      max-width: 590px;
       margin: 0;
       color: var(--muted);
       font-size: clamp(1.08rem, 2vw, 1.35rem);
-      line-height: 1.65;
+      line-height: 1.62;
     }
 
     .actions {
@@ -140,42 +163,111 @@
       min-height: 48px;
       align-items: center;
       justify-content: center;
-      padding: 0 20px;
+      gap: 10px;
+      padding: 0 18px;
       border-radius: 8px;
       color: #fff;
       background: var(--ink);
       font-weight: 800;
       text-decoration: none;
-      box-shadow: 0 14px 30px rgba(16, 35, 63, 0.18);
+      box-shadow: 0 14px 30px rgba(17, 24, 39, 0.18);
     }
 
     .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
       color: var(--muted);
-      font-weight: 700;
     }
 
     .dot {
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: var(--teal);
-      box-shadow: 0 0 0 8px rgba(24, 182, 166, 0.12);
+      background: var(--green);
+      box-shadow: 0 0 0 8px rgba(16, 163, 127, 0.12);
+    }
+
+    .panel {
+      position: relative;
+      display: grid;
+      gap: 18px;
+      align-content: center;
+      min-height: 360px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(37, 99, 235, 0.10), transparent 42%),
+        var(--soft);
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px dashed rgba(17, 24, 39, 0.16);
+      border-radius: 8px;
+      pointer-events: none;
+    }
+
+    .panel-number {
+      position: relative;
+      font-size: clamp(4.8rem, 9vw, 7.4rem);
+      line-height: 0.9;
+      font-weight: 900;
+      color: var(--ink);
+    }
+
+    .panel-label {
+      position: relative;
+      max-width: 220px;
+      color: var(--muted);
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .signal {
+      position: absolute;
+      right: 28px;
+      bottom: 28px;
+      display: flex;
+      gap: 6px;
+      align-items: end;
+    }
+
+    .signal span {
+      display: block;
+      width: 8px;
+      border-radius: 999px;
+      background: var(--blue);
+    }
+
+    .signal span:nth-child(1) {
+      height: 22px;
+      background: var(--green);
+    }
+
+    .signal span:nth-child(2) {
+      height: 34px;
+      background: var(--amber);
+    }
+
+    .signal span:nth-child(3) {
+      height: 48px;
     }
 
     .highlights {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1px;
       border-top: 1px solid var(--line);
-      background: var(--line);
     }
 
     .highlight {
       padding: 22px clamp(20px, 4vw, 34px);
-      background: rgba(255, 255, 255, 0.64);
+      border-right: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .highlight:last-child {
+      border-right: 0;
     }
 
     .highlight strong {
@@ -200,7 +292,7 @@
         padding: 16px;
       }
 
-      .hero {
+      .shell {
         min-height: calc(100vh - 32px);
       }
 
@@ -215,19 +307,33 @@
       }
 
       main {
+        grid-template-columns: 1fr;
         padding-top: 54px;
         padding-bottom: 64px;
       }
 
+      .panel {
+        min-height: 260px;
+      }
+
       .highlights {
         grid-template-columns: 1fr;
+      }
+
+      .highlight {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .highlight:last-child {
+        border-bottom: 0;
       }
     }
   </style>
 </head>
 <body>
   <div class="page">
-    <section class="hero" aria-label="Welcome to 247.net.pk">
+    <section class="shell" aria-label="Welcome to 247.net.pk">
       <header>
         <div class="brand">
           <span class="mark">247</span>
@@ -241,15 +347,27 @@
       </header>
 
       <main>
-        <p class="eyebrow">Welcome</p>
-        <h1>Welcome from <span class="accent">247.net.pk</span></h1>
-        <p class="lead">
-          A clean digital starting point for 247.net.pk, built to feel fast,
-          polished, and ready for what comes next.
-        </p>
-        <div class="actions">
-          <a class="button" href="mailto:info@247.net.pk">Get in touch</a>
-          <span class="status"><span class="dot"></span>Online 24/7</span>
+        <div class="copy">
+          <p class="eyebrow">Official home</p>
+          <h1>Simple, modern web presence for <span class="accent">247.net.pk</span></h1>
+          <p class="lead">
+            A clean starting point with clear messaging, responsive design, and
+            a professional look that keeps the focus on your brand.
+          </p>
+          <div class="actions">
+            <a class="button" href="mailto:info@247.net.pk">Get in touch</a>
+            <span class="status"><span class="dot"></span>Online 24/7</span>
+          </div>
+        </div>
+
+        <div class="panel" aria-hidden="true">
+          <div class="panel-number">247</div>
+          <div class="panel-label">Reliable digital access, every hour of every day.</div>
+          <div class="signal">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </main>
 
